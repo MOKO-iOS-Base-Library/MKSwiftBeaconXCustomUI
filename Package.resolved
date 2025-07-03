@@ -1,5 +1,5 @@
 {
-  "originHash" : "1e1e68e500e7cdb0a8d7000c93f037b45884aa732ae8650cd02606a61d103f0e",
+  "originHash" : "dfb4e00d25f9d0784ee15660221a0a869c64c19a046657572e0a7e1bf12dac23",
   "pins" : [
     {
       "identity" : "devicekit",
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MOKO-iOS-Base-Library/MKBaseSwiftModule.git",
       "state" : {
-        "revision" : "245f4cf591ad9a11c48f649f89303db9c5145531",
-        "version" : "1.0.7"
+        "revision" : "51a7d817a13c24e1d2c49366bcb8b8382c88e470",
+        "version" : "1.0.8"
       }
     },
     {

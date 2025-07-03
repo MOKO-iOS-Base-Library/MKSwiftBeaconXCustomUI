@@ -273,7 +273,7 @@ public class MKSwiftBXScanThreeASensorCell: MKSwiftBaseCell {
     
     private lazy var leftIcon: UIImageView = {
         let view = UIImageView()
-        view.image = moduleIcon(name: "mk_swift_bx_littleBluePoint")
+        view.image = moduleIcon(name: "mk_swift_bx_littleBluePoint", in: .module)
         return view
     }()
     

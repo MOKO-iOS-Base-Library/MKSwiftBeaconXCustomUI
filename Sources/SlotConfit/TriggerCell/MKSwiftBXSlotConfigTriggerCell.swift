@@ -360,7 +360,7 @@ public class MKSwiftBXSlotConfigTriggerCell: MKSwiftBaseCell, @preconcurrency MK
     
     private func updateSwitchButtonIcon() {
         let iconName = switchButton.isSelected ? "mk_swift_bx_switchSelectedIcon" : "mk_swift_bx_switchUnselectedIcon"
-        switchButton.setImage(moduleIcon(name: iconName), for: .normal)
+        switchButton.setImage(moduleIcon(name: iconName, in: .module), for: .normal)
     }
     
     private func loadTriggerTypes() {
@@ -604,7 +604,7 @@ public class MKSwiftBXSlotConfigTriggerCell: MKSwiftBaseCell, @preconcurrency MK
     
     private lazy var leftIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = moduleIcon(name: "mk_swift_bx_slotParamsTriggerIcon")
+        imageView.image = moduleIcon(name: "mk_swift_bx_slotParamsTriggerIcon", in: .module)
         return imageView
     }()
     
@@ -615,7 +615,7 @@ public class MKSwiftBXSlotConfigTriggerCell: MKSwiftBaseCell, @preconcurrency MK
     
     private lazy var switchButton: UIButton = {
         let button = UIButton()
-        button.setImage(moduleIcon(name: "mk_swift_bx_switchUnselectedIcon"), for: .normal)
+        button.setImage(moduleIcon(name: "mk_swift_bx_switchUnselectedIcon", in: .module), for: .normal)
         button.addTarget(self,
                          action: #selector(switchButtonPressed),
                          for: .touchUpInside)

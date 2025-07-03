@@ -236,7 +236,7 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
     // MARK: - UI Components (lazy loaded)
     private lazy var rssiIcon: UIImageView = {
         let view = UIImageView()
-        view.image = moduleIcon(name: "mk_swift_bx_signalIcon")
+        view.image = moduleIcon(name: "mk_swift_bx_signalIcon", in: .module)
         return view
     }()
     
@@ -262,7 +262,7 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
     
     private lazy var batteryIcon: UIImageView = {
         let view = UIImageView()
-        view.image = moduleIcon(name: "mk_swift_bx_batteryHighest")
+        view.image = moduleIcon(name: "mk_swift_bx_batteryHighest", in: .module)
         return view
     }()
     

@@ -163,7 +163,7 @@ public class MKBXSlotConfigUIDCell: MKSwiftBaseCell, @preconcurrency MKSwiftBXSl
     
     private lazy var leftIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = moduleIcon(name: "mk_swift_bx_slotAdvContent")
+        imageView.image = moduleIcon(name: "mk_swift_bx_slotAdvContent", in: .module)
         return imageView
     }()
     

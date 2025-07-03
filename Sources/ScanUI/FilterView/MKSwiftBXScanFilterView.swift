@@ -306,7 +306,7 @@ public class MKSwiftBXScanFilterView: UIView {
     }()
     
     private lazy var signalIcon: UIImageView = {
-        let imageView = UIImageView(image: moduleIcon(name: "mk_swift_bx_wifiSignalIcon"))
+        let imageView = UIImageView(image: moduleIcon(name: "mk_swift_bx_wifiSignalIcon", in: .module))
         return imageView
     }()
     
@@ -320,7 +320,7 @@ public class MKSwiftBXScanFilterView: UIView {
     }()
     
     private lazy var graySignalIcon: UIImageView = {
-        let imageView = UIImageView(image: moduleIcon(name: "mk_swift_bx_wifiGraySignalIcon"))
+        let imageView = UIImageView(image: moduleIcon(name: "mk_swift_bx_wifiGraySignalIcon", in: .module))
         return imageView
     }()
     

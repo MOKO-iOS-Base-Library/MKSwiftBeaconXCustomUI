@@ -172,7 +172,7 @@ public class MKSwiftBXScanHTCell: MKSwiftBaseCell {
     // MARK: - UI Components (lazy loaded)
     private lazy var leftIcon: UIImageView = {
         let view = UIImageView()
-        view.image = moduleIcon(name: "mk_swift_bx_littleBluePoint")
+        view.image = moduleIcon(name: "mk_swift_bx_littleBluePoint", in: .module)
         return view
     }()
     

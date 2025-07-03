@@ -274,9 +274,9 @@ public class MKSwiftBXTriggerTapView: UIView {
     }
     
     private func updateSelectedIcon() {
-        icon1.image = moduleIcon(name: currentIndex == 0 ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon")
-        icon2.image = moduleIcon(name: currentIndex == 1 ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon")
-        icon4.image = moduleIcon(name: currentIndex == 2 ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon")
+        icon1.image = moduleIcon(name: currentIndex == 0 ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
+        icon2.image = moduleIcon(name: currentIndex == 1 ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
+        icon4.image = moduleIcon(name: currentIndex == 2 ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
     }
     
     private func updateNoteMsg() {
@@ -394,19 +394,19 @@ public class MKSwiftBXTriggerTapView: UIView {
     
     private lazy var icon1: UIImageView = {
         let view = UIImageView()
-        view.image = moduleIcon(name: "mk_swift_bx_slotConfigSelectedIcon")
+        view.image = moduleIcon(name: "mk_swift_bx_slotConfigSelectedIcon", in: .module)
         return view
     }()
     
     private lazy var icon2: UIImageView = {
         let view = UIImageView()
-        view.image = moduleIcon(name: "mk_swift_bx_slotConfigUnselectedIcon")
+        view.image = moduleIcon(name: "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
         return view
     }()
     
     private lazy var icon4: UIImageView = {
         let view = UIImageView()
-        view.image = moduleIcon(name: "mk_swift_bx_slotConfigUnselectedIcon")
+        view.image = moduleIcon(name: "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
         return view
     }()
     

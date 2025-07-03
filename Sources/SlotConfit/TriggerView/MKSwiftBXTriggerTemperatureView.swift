@@ -165,8 +165,8 @@ public class MKSwiftBXTriggerTemperatureView: UIView {
     }
     
     private func updateSelectedIcon() {
-        startIcon.image = moduleIcon(name: startStatus ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon")
-        stopIcon.image = moduleIcon(name: startStatus ? "mk_swift_bx_slotConfigUnselectedIcon" : "mk_swift_bx_slotConfigSelectedIcon")
+        startIcon.image = moduleIcon(name: startStatus ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
+        stopIcon.image = moduleIcon(name: startStatus ? "mk_swift_bx_slotConfigUnselectedIcon" : "mk_swift_bx_slotConfigSelectedIcon", in: .module)
     }
     
     // MARK: - UI Components (Lazy loading)
@@ -196,7 +196,7 @@ public class MKSwiftBXTriggerTemperatureView: UIView {
     
     private lazy var startIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = moduleIcon(name: "mk_swift_bx_slotConfigSelectedIcon")
+        imageView.image = moduleIcon(name: "mk_swift_bx_slotConfigSelectedIcon", in: .module)
         return imageView
     }()
     
@@ -209,7 +209,7 @@ public class MKSwiftBXTriggerTemperatureView: UIView {
     
     private lazy var stopIcon: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = moduleIcon(name: "mk_swift_bx_slotConfigUnselectedIcon")
+        imageView.image = moduleIcon(name: "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
         return imageView
     }()
     

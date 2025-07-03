@@ -127,7 +127,7 @@ public class MKBXQuickSwitchCell: UICollectionViewCell {
     
     // MARK: - Private Methods
     private func updateSwitchButtonIcon() {
-        let image = switchButton.isSelected ? moduleIcon(name: "mk_swift_bx_switchSelectedIcon") : moduleIcon(name: "mk_swift_bx_switchUnselectedIcon")
+        let image = switchButton.isSelected ? moduleIcon(name: "mk_swift_bx_switchSelectedIcon", in: .module) : moduleIcon(name: "mk_swift_bx_switchUnselectedIcon", in: .module)
         switchButton.setImage(image, for: .normal)
         
         let statusColor = switchButton.isSelected ? UIColor.blue : UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)

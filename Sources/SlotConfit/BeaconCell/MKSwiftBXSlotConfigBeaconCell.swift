@@ -179,7 +179,7 @@ public class MKSwiftBXSlotConfigBeaconCell: MKSwiftBaseCell, @preconcurrency MKS
     private lazy var leftIcon: UIImageView = {
         let imageView = UIImageView()
         // Replace with your actual image asset
-        imageView.image = moduleIcon(name: "mk_swift_bx_slotAdvContent")
+        imageView.image = moduleIcon(name: "mk_swift_bx_slotAdvContent", in: .module)
         return imageView
     }()
     

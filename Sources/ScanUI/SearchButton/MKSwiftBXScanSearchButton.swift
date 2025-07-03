@@ -135,7 +135,7 @@ public class MKSwiftBXScanSearchButton: UIControl {
     // MARK: - Lazy
     
     private lazy var searchIcon: UIImageView = {
-        return UIImageView(image: moduleIcon(name: "mk_swift_bx_searchGrayIcon"))
+        return UIImageView(image: moduleIcon(name: "mk_swift_bx_searchGrayIcon", in: .module))
     }()
     private lazy var titleLabel: UILabel = {
         let titleLabel = UILabel()
@@ -155,7 +155,7 @@ public class MKSwiftBXScanSearchButton: UIControl {
     }()
     private lazy var clearButton: UIButton = {
         let clearButton = UIButton(type: .custom)
-        clearButton.setImage(moduleIcon(name: "mk_swift_bx_clearButtonIcon"), for: .normal)
+        clearButton.setImage(moduleIcon(name: "mk_swift_bx_clearButtonIcon", in: .module), for: .normal)
         clearButton.addTarget(self, action: #selector(clearButtonPressed), for: .touchUpInside)
         clearButton.isHidden = true
         return clearButton
