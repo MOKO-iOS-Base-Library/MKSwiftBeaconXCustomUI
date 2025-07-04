@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class MKSwiftBXScanBaseModel {
+open class MKSwiftBXScanBaseModel {
     //如果是TLM、温湿度、三轴传感器中的一种，并且设备信息广播帧数组里面已经包含了该种广播帧，根据原始广播数据来判断二者是否一致，如果一致则舍弃，不一致则用新的广播帧替换广播帧数组里的该广播帧
     public var advertiseData: Data?
     //用来标示数据model在设备列表或者设备信息广播帧数组里的index
