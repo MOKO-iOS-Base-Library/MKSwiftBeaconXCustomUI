@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 import MKBaseSwiftModule
 
-public class MKSwiftBXScanURLCellModel {
+public class MKSwiftBXScanURLCellModel: MKSwiftBXScanBaseModel {
     public var txPower: String = ""
     public var shortUrl: String = ""
     
-    public init() {}
+    public override init() {}
 }
 
 public class MKSwiftBXScanURLCell: MKSwiftBaseCell {

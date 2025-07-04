@@ -10,16 +10,16 @@ import CoreBluetooth
 import SnapKit
 import MKBaseSwiftModule
 
-public class MKSwiftBXScanBeaconCellModel {
-    public var rssi1M: String?
-    public var txPower: String?
-    public var interval: String?
-    public var major: String?
-    public var minor: String?
-    public var uuid: String?
-    public var rssi: String?
+public class MKSwiftBXScanBeaconCellModel:MKSwiftBXScanBaseModel  {
+    public var rssi1M: String = ""
+    public var txPower: String = ""
+    public var interval: String = ""
+    public var major: String = ""
+    public var minor: String = ""
+    public var uuid: String = ""
+    public var rssi: String = ""
     
-    public init() {}
+    public override init() {}
 }
 
 public class MKSwiftBXScanBeaconCell: MKSwiftBaseCell {
@@ -183,12 +183,10 @@ public class MKSwiftBXScanBeaconCell: MKSwiftBaseCell {
         uuidIDLabel.text = model.uuid
         majorIDLabel.text = model.major
         minorIDLabel.text = model.minor
-        rssiValueLabel.text = "\(model.rssi1M ?? "")dBm"
-        txPowerValueLabel.text = "\(model.txPower ?? "")dBm"
-        
-        if let rssiStr = model.rssi, let rssi = Int(rssiStr),
-           let rssi1MStr = model.rssi1M, let rssi1M = Int(rssi1MStr) {
-            let distanceValue = calcDistByRSSI(rssi, measurePower: abs(rssi1M))
+        rssiValueLabel.text = "\(model.rssi1M)dBm"
+        txPowerValueLabel.text = "\(model.txPower)dBm"
+        if model.rssi.count > 0 && model.rssi1M.count > 0 {
+            let distanceValue = calcDistByRSSI(Int(model.rssi)!, measurePower: abs(Int(model.rssi1M)!))
             if (distanceValue as NSString).floatValue <= 0.1 {
                 distanceValueLabel.text = "Immediate"
             } else if (distanceValue as NSString).floatValue > 0.1 && (distanceValue as NSString).floatValue <= 1.0 {

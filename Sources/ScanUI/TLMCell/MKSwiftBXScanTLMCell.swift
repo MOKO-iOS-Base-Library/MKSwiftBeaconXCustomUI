@@ -9,14 +9,14 @@ import UIKit
 import SnapKit
 import MKBaseSwiftModule
 
-public class MKSwiftBXScanTLMCellModel {
+public class MKSwiftBXScanTLMCellModel: MKSwiftBXScanBaseModel {
     public var version: String = ""
     public var mvPerbit: String = ""
     public var temperature: String = ""
     public var advertiseCount: String = ""
     public var deciSecondsSinceBoot: String = ""
     
-    public init() {}
+    public override init() {}
 }
 
 public class MKSwiftBXScanTLMCell: MKSwiftBaseCell {

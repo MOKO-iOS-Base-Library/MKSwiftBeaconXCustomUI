@@ -10,9 +10,9 @@ import SnapKit
 import MKBaseSwiftModule
 
 public class MKSwiftBXSlotConfigBeaconCellModel {
-    public var major: String?
-    public var minor: String?
-    public var uuid: String?
+    public var major: String = ""
+    public var minor: String = ""
+    public var uuid: String = ""
     
     public init() {}
 }
@@ -161,9 +161,9 @@ public class MKSwiftBXSlotConfigBeaconCell: MKSwiftBaseCell, @preconcurrency MKS
     
     private func updateContent() {
         guard let dataModel = dataModel else { return }
-        majorTextField.text = dataModel.major ?? ""
-        minorTextField.text = dataModel.minor ?? ""
-        uuidTextField.text = dataModel.uuid ?? ""
+        majorTextField.text = dataModel.major
+        minorTextField.text = dataModel.minor
+        uuidTextField.text = dataModel.uuid
     }
     
     // MARK: - UI Components

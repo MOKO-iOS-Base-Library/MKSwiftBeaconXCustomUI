@@ -26,9 +26,9 @@ public class MKSwiftBXSlotConfigURLCell: MKSwiftBaseCell, @preconcurrency MKSwif
                 "result":[:]
             ]
         }
-        var url = urlTypeLabel.text! + content
+        let url = urlTypeLabel.text! + content
         //需要对,@"http://"、@"https://这两种情况单独处理
-        var legal = url.matchesRegex(String.isUrl)
+        let legal = url.matchesRegex(String.isUrl)
         if legal {
             return getLegitimateUrl(header: urlTypeLabel.text!, urlContent: content)
         }

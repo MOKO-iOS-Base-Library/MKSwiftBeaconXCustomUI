@@ -9,12 +9,12 @@ import UIKit
 import SnapKit
 import MKBaseSwiftModule
 
-public class MKSwiftBXScanUIDCellModel {
+public class MKSwiftBXScanUIDCellModel: MKSwiftBXScanBaseModel {
     public var txPower: String = ""
     public var namespaceId: String = ""
     public var instanceId: String = ""
     
-    public init() {}
+    public override init() {}
 }
 
 public class MKSwiftBXScanUIDCell: MKSwiftBaseCell {

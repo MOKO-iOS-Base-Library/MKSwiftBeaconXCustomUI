@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import MKBaseSwiftModule
 
-public class MKSwiftBXScanThreeASensorCellModel {
+public class MKSwiftBXScanThreeASensorCellModel: MKSwiftBXScanBaseModel {
     public var rssi0M: String = ""
     public var txPower: String = ""
     public var interval: String = ""
@@ -21,7 +21,7 @@ public class MKSwiftBXScanThreeASensorCellModel {
     public var zData: String = ""
     public var needParse: Bool = false
     
-    public init() {}
+    public override init() {}
 }
 
 public class MKSwiftBXScanThreeASensorCell: MKSwiftBaseCell {

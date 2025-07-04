@@ -9,14 +9,14 @@ import UIKit
 import SnapKit
 import MKBaseSwiftModule
 
-public class MKSwiftBXScanHTCellModel {
-    public var txPower: String?
-    public var rssi0M: String?
-    public var interval: String?
-    public var temperature: String?
-    public var humidity: String?
+public class MKSwiftBXScanHTCellModel: MKSwiftBXScanBaseModel {
+    public var txPower: String = ""
+    public var rssi0M: String = ""
+    public var interval: String = ""
+    public var temperature: String = ""
+    public var humidity: String = ""
     
-    public init() {}
+    public override init() {}
 }
 
 public class MKSwiftBXScanHTCell: MKSwiftBaseCell {
@@ -152,10 +152,10 @@ public class MKSwiftBXScanHTCell: MKSwiftBaseCell {
     private func updateContent() {
         guard let model = dataModel else { return }
         
-        rssiValueLabel.text = "\(model.rssi0M ?? "")dBm"
-        txPowerValueLabel.text = "\(model.txPower ?? "")dBm"
-        tempValueLabel.text = "\(model.temperature ?? "")℃"
-        humidityValueLabel.text = "\(model.humidity ?? "")%RH"
+        rssiValueLabel.text = "\(model.rssi0M)dBm"
+        txPowerValueLabel.text = "\(model.txPower)dBm"
+        tempValueLabel.text = "\(model.temperature)℃"
+        humidityValueLabel.text = "\(model.humidity)%RH"
         
         setNeedsLayout()
     }
