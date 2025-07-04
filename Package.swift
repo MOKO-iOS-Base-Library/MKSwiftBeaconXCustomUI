@@ -15,7 +15,7 @@ let package = Package(
             targets: ["MKSwiftBeaconXCustomUI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/MOKO-iOS-Base-Library/MKBaseSwiftModule.git", .upToNextMajor(from: "1.0.8")),
+        .package(url: "https://github.com/MOKO-iOS-Base-Library/MKBaseSwiftModule.git", .upToNextMajor(from: "1.0.9")),
     ],
     targets: [
         .target(
