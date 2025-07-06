@@ -1,5 +1,5 @@
 {
-  "originHash" : "647cba5de8591a7715d44f54d60e488a13590e3a3610166555faf431f35412d8",
+  "originHash" : "f73f73e8d96929c6ee5baadf4d7b120a5858779a1d29f6b8bdd3416e44e1b8a9",
   "pins" : [
     {
       "identity" : "devicekit",
@@ -29,6 +29,15 @@
       }
     },
     {
+      "identity" : "libxlsxwriter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/jmcnamara/libxlsxwriter",
+      "state" : {
+        "revision" : "051a01a2c31eb55fa467964a2c2328cfb8bcbde8",
+        "version" : "1.2.3"
+      }
+    },
+    {
       "identity" : "mjrefresh",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/CoderMJLee/MJRefresh.git",
@@ -42,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MOKO-iOS-Base-Library/MKBaseSwiftModule.git",
       "state" : {
-        "revision" : "935e02a477d98029623dcf571e32d3dee73f9f2b",
-        "version" : "1.0.9"
+        "revision" : "c9f1f4568eb94ece9fe8c9bf2b057adaa4339635",
+        "version" : "1.0.10"
       }
     },
     {
@@ -80,6 +89,15 @@
       "state" : {
         "revision" : "ddccd20d6fb718448d9b179c454c561653fda7d5",
         "version" : "5.1.1"
+      }
+    },
+    {
+      "identity" : "ziparchive",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZipArchive/ZipArchive.git",
+      "state" : {
+        "revision" : "df35718ea19a94e015b91dc4881dee028ce4cdba",
+        "version" : "2.6.0"
       }
     }
   ],
