@@ -12,6 +12,7 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "MKSwiftBeaconXCustomUI",
+            type: .dynamic,
             targets: ["MKSwiftBeaconXCustomUI"]),
     ],
     dependencies: [
@@ -21,7 +22,8 @@ let package = Package(
         .target(
             name: "MKSwiftBeaconXCustomUI",
             dependencies: [
-                .product(name: "MKBaseSwiftModule", package: "MKBaseSwiftModule"),
+                .product(name: "MKBaseSwiftModule",
+                         package: "MKBaseSwiftModule")
             ],
             path: "Sources",
             resources: [
@@ -29,7 +31,10 @@ let package = Package(
             ],
             swiftSettings: [
                 .define("DEBUG", .when(configuration: .debug)),
-                .define("IOS14_OR_LATER")  // 添加编译标志
+                .define("IOS16_OR_LATER")  // 添加编译标志
+            ],
+            linkerSettings: [
+                .unsafeFlags(["-Wl,-no_warn_duplicate_libraries"]) // 继承冲突解决方案
             ]
         ),
         .testTarget(
