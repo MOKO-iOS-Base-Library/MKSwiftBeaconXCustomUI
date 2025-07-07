@@ -33,9 +33,6 @@ let package = Package(
                 .define("DEBUG", .when(configuration: .debug)),
                 .define("IOS16_OR_LATER")  // 添加编译标志
             ],
-            linkerSettings: [
-                .unsafeFlags(["-Wl,-no_warn_duplicate_libraries"]) // 继承冲突解决方案
-            ]
         ),
         .testTarget(
             name: "MKSwiftBeaconXCustomUITests",
