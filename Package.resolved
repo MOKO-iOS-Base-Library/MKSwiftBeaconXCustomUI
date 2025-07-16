@@ -1,5 +1,5 @@
 {
-  "originHash" : "a37945f3410cd7912378c7921a76134d5ddc63dbd05bfd1c517d16fb108ba6c2",
+  "originHash" : "c3650472142945496f63c66fc756ca72910804c3e3ccac3bfaba29a02014c7f2",
   "pins" : [
     {
       "identity" : "devicekit",
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MOKO-iOS-Base-Library/MKBaseSwiftModule.git",
       "state" : {
-        "revision" : "30d4878d788e040354b152757eccedeaeeca7cbc",
-        "version" : "1.0.11"
+        "revision" : "8e20efd68204ecbcaf273b89c76f59d433e822c9",
+        "version" : "1.0.12"
       }
     },
     {
@@ -92,12 +92,12 @@
       }
     },
     {
-      "identity" : "ziparchive",
+      "identity" : "zipfoundation",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/ZipArchive/ZipArchive.git",
+      "location" : "https://github.com/weichsel/ZIPFoundation.git",
       "state" : {
-        "revision" : "df35718ea19a94e015b91dc4881dee028ce4cdba",
-        "version" : "2.6.0"
+        "revision" : "02b6abe5f6eef7e3cbd5f247c5cc24e246efcfe0",
+        "version" : "0.9.19"
       }
     }
   ],

@@ -32,7 +32,7 @@ let package = Package(
             swiftSettings: [
                 .define("DEBUG", .when(configuration: .debug)),
                 .define("IOS16_OR_LATER")  // 添加编译标志
-            ],
+            ]
         ),
         .testTarget(
             name: "MKSwiftBeaconXCustomUITests",
