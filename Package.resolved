@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MOKO-iOS-Base-Library/MKBaseSwiftModule.git",
       "state" : {
-        "revision" : "8e20efd68204ecbcaf273b89c76f59d433e822c9",
-        "version" : "1.0.12"
+        "revision" : "85dc2d8470a3b394345f9e0e761b8052a02dd57b",
+        "version" : "1.0.13"
       }
     },
     {
