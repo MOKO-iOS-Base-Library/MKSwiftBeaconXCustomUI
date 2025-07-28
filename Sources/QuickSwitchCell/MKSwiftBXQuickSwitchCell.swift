@@ -17,23 +17,35 @@ public class MKBXQuickSwitchCellLayout: UICollectionViewFlowLayout {
             return nil
         }
         
+        if attributes.isEmpty || attributes.count == 1 {
+            return attributes
+        }
+        
+        // 复制属性以避免修改原始值
         let mutableAttributes = attributes.map { $0.copy() as! UICollectionViewLayoutAttributes }
         
+        // 调整间距
         for i in 1..<mutableAttributes.count {
-            let currentLayoutAttributes = mutableAttributes[i]
-            let prevLayoutAttributes = mutableAttributes[i - 1]
+            let current = mutableAttributes[i]
+            let previous = mutableAttributes[i-1]
             
             let maximumSpacing: CGFloat = 11.0
-            let origin = prevLayoutAttributes.frame.maxX
+            let origin = previous.frame.maxX
             
-            if origin + maximumSpacing + currentLayoutAttributes.frame.width < collectionViewContentSize.width {
-                var frame = currentLayoutAttributes.frame
-                frame.origin.x = origin + maximumSpacing
-                currentLayoutAttributes.frame = frame
+            if origin + maximumSpacing + current.frame.size.width < collectionViewContentSize.width {
+                current.frame.origin.x = origin + maximumSpacing
+            } else {
+                // 换行处理
+                current.frame.origin.x = sectionInset.left
             }
         }
         
         return mutableAttributes
+    }
+    
+    public override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        // 当视图大小变化时重新布局
+        return true
     }
 }
 
