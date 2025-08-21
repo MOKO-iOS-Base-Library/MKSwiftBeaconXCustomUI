@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "MKSwiftBeaconXCustomUI",
     platforms: [
-        .iOS(.v16),  // 最低支持iOS 16
+        .iOS(.v14),  // 最低支持iOS 14
     ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
@@ -30,7 +30,7 @@ let package = Package(
             ],
             swiftSettings: [
                 .define("DEBUG", .when(configuration: .debug)),
-                .define("IOS16_OR_LATER")  // 添加编译标志
+                .define("IOS14_OR_LATER")  // 添加编译标志
             ]
         ),
         .testTarget(
