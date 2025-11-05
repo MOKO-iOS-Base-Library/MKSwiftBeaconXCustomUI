@@ -259,18 +259,18 @@ public class MKSwiftBXSlotConfigURLCell: MKSwiftBaseCell, @preconcurrency MKSwif
     }()
     
     private lazy var msgLabel: UILabel = {
-        return MKSwiftUIAdaptor.createNormalLabel(font: Font.MKFont(14.0), text: "URL")
+        return MKSwiftUIAdaptor.createNormalLabel(font: MKFont.font(14.0), text: "URL")
     }()
     
     private lazy var urlTypeLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.textColor = Color.rgb(111, 111, 111)
-        label.font = Font.MKFont(12.0)
+        label.textColor = MKColor.rgb(111, 111, 111)
+        label.font = MKFont.font(12.0)
         label.text = "http://www."
         label.layer.masksToBounds = true
         label.layer.borderWidth = 0.5
-        label.layer.borderColor = Color.line.cgColor
+        label.layer.borderColor = MKColor.line.cgColor
         label.layer.cornerRadius = 2
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(urlTypeLabelPressed)))
@@ -279,12 +279,12 @@ public class MKSwiftBXSlotConfigURLCell: MKSwiftBaseCell, @preconcurrency MKSwif
     
     private lazy var textField: MKSwiftTextField = {
         let textField = MKSwiftTextField(textFieldType: .normal)
-        textField.textColor = Color.defaultText
+        textField.textColor = MKColor.defaultText
         textField.placeholder = "mokoblue.com/"
-        textField.font = Font.MKFont(15.0)
+        textField.font = MKFont.font(15.0)
         textField.layer.masksToBounds = true
         textField.layer.borderWidth = 0.5
-        textField.layer.borderColor = Color.line.cgColor
+        textField.layer.borderColor = MKColor.line.cgColor
         textField.layer.cornerRadius = 3
         return textField
     }()

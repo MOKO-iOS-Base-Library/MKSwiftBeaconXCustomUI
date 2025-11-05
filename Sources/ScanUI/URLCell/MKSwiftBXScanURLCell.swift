@@ -23,7 +23,7 @@ public class MKSwiftBXScanURLCell: MKSwiftBaseCell {
         }
     }
     
-    private let msgFont = Font.MKFont(12.0)
+    private let msgFont = MKFont.font(12.0)
     private let offsetX: CGFloat = 10
     private let offsetY: CGFloat = 10
     private let leftIconWidth: CGFloat = 7
@@ -130,7 +130,7 @@ public class MKSwiftBXScanURLCell: MKSwiftBaseCell {
     
     private func createLabel(with font: UIFont) -> UILabel {
         let label = UILabel()
-        label.textColor = Color.rgb(184, 184, 184)
+        label.textColor = MKColor.rgb(184, 184, 184)
         label.textAlignment = .left
         label.font = font
         return label
@@ -153,7 +153,7 @@ public class MKSwiftBXScanURLCell: MKSwiftBaseCell {
     }()
     
     private lazy var typeLabel: UILabel = {
-        let label = createLabel(with: Font.MKFont(15.0))
+        let label = createLabel(with: MKFont.font(15.0))
         label.textColor = .black
         label.text = "URL"
         return label

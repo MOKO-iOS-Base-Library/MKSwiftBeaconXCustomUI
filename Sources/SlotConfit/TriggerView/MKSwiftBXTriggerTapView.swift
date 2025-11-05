@@ -242,9 +242,9 @@ public class MKSwiftBXTriggerTapView: UIView {
     
     private func createMessageLabel() -> UILabel {
         let label = UILabel()
-        label.textColor = Color.defaultText
+        label.textColor = MKColor.defaultText
         label.textAlignment = .left
-        label.font = Font.MKFont(11.0)
+        label.font = MKFont.font(11.0)
         label.numberOfLines = 0
         label.isUserInteractionEnabled = true
         return label
@@ -270,7 +270,7 @@ public class MKSwiftBXTriggerTapView: UIView {
     }
     
     private func attributedUnitText() -> NSAttributedString {
-        return MKSwiftUIAdaptor.createAttributedString(strings: ["s","   (1~65535)"], fonts: [Font.MKFont(11),Font.MKFont(10)], colors: [Color.defaultText,Color.rgb(223, 223, 223)])
+        return MKSwiftUIAdaptor.createAttributedString(strings: ["s","   (1~65535)"], fonts: [MKFont.font(11),MKFont.font(10)], colors: [MKColor.defaultText,MKColor.rgb(223, 223, 223)])
     }
     
     private func updateSelectedIcon() {
@@ -448,16 +448,16 @@ public class MKSwiftBXTriggerTapView: UIView {
         field.textChangedBlock = { [weak self] text in
             self?.startTextFieldValueChanged(text: text)
         }
-        field.textColor = Color.defaultText
+        field.textColor = MKColor.defaultText
         field.textAlignment = .center
-        field.font = Font.MKFont(12.0)
+        field.font = MKFont.font(12.0)
         field.borderStyle = .none
         field.text = "30"
         field.maxLength = 5
         
         
         let lineView = UIView()
-        lineView.backgroundColor = Color.line
+        lineView.backgroundColor = MKColor.line
         field.addSubview(lineView)
         field.snp.remakeConstraints { make in
             make.left.right.bottom.equalToSuperview()
@@ -472,16 +472,16 @@ public class MKSwiftBXTriggerTapView: UIView {
         field.textChangedBlock = { [weak self] text in
             self?.stopTextFieldValueChanged(text: text)
         }
-        field.textColor = Color.defaultText
+        field.textColor = MKColor.defaultText
         field.textAlignment = .center
-        field.font = Font.MKFont(12.0)
+        field.font = MKFont.font(12.0)
         field.borderStyle = .none
         field.text = "30"
         field.maxLength = 5
         
         
         let lineView = UIView()
-        lineView.backgroundColor = Color.line
+        lineView.backgroundColor = MKColor.line
         field.addSubview(lineView)
         field.snp.remakeConstraints { make in
             make.left.right.bottom.equalToSuperview()
@@ -493,10 +493,10 @@ public class MKSwiftBXTriggerTapView: UIView {
     
     private lazy var noteMsgLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Color.rgb(229, 173, 140)
+        label.textColor = MKColor.rgb(229, 173, 140)
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = Font.MKFont(11.0)
+        label.font = MKFont.font(11.0)
         return label
     }()
 }

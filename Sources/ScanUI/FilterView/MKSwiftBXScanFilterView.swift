@@ -173,7 +173,7 @@ public class MKSwiftBXScanFilterView: UIView {
             make.height.equalTo(13)
         }
         
-        let note1Size = noteMsg1.size(withFont: noteLabel1.font, maxSize: CGSize(width: (Screen.width - 4 * offsetX), height: .greatestFiniteMagnitude))
+        let note1Size = noteMsg1.size(withFont: noteLabel1.font, maxSize: CGSize(width: (MKScreen.width - 4 * offsetX), height: .greatestFiniteMagnitude))
         
         noteLabel1.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(offsetX)
@@ -182,7 +182,7 @@ public class MKSwiftBXScanFilterView: UIView {
             make.height.equalTo(note1Size.height)
         }
         
-        let note2Size = noteMsg2.size(withFont: noteLabel2.font, maxSize: CGSize(width: (Screen.width - 4 * offsetX), height: .greatestFiniteMagnitude))
+        let note2Size = noteMsg2.size(withFont: noteLabel2.font, maxSize: CGSize(width: (MKScreen.width - 4 * offsetX), height: .greatestFiniteMagnitude))
         
         noteLabel2.snp.makeConstraints { make in
             make.left.right.equalTo(noteLabel1)
@@ -206,7 +206,7 @@ public class MKSwiftBXScanFilterView: UIView {
         slider.value = Float(-100 - rssi)
         rssiValueLabel.text = "\(rssi)dBm"
         
-        App.window?.addSubview(self)
+        MKApp.window?.addSubview(self)
         
         UIView.animate(withDuration: 0.25) {
             self.backView.transform = CGAffineTransform(translationX: 0, y: self.backViewHeight + 88)
@@ -261,7 +261,7 @@ public class MKSwiftBXScanFilterView: UIView {
         let label = UILabel()
         label.textColor = .darkText
         label.textAlignment = .left
-        label.font = Font.MKFont(14.0)
+        label.font = MKFont.font(14.0)
         label.text = "MAC Addr"
         return label
     }()
@@ -269,11 +269,11 @@ public class MKSwiftBXScanFilterView: UIView {
     private lazy var macTextField: MKSwiftTextField = {
         let textField = MKSwiftTextField(textFieldType: .normal)
         textField.borderStyle = .none
-        textField.font = Font.MKFont(13.0)
-        textField.textColor = Color.defaultText
+        textField.font = MKFont.font(13.0)
+        textField.textColor = MKColor.defaultText
         textField.placeholder = "1-6bytes HEX"
         textField.clearButtonMode = .whileEditing
-        textField.layer.borderColor = Color.navBar.cgColor
+        textField.layer.borderColor = MKColor.navBar.cgColor
         textField.layer.borderWidth = 0.5
         textField.layer.cornerRadius = 4.0
         textField.layer.masksToBounds = true
@@ -285,7 +285,7 @@ public class MKSwiftBXScanFilterView: UIView {
         let label = UILabel()
         label.textColor = .darkText
         label.textAlignment = .left
-        label.font = Font.MKFont(14.0)
+        label.font = MKFont.font(14.0)
         label.text = "Min. RSSI"
         return label
     }()
@@ -294,7 +294,7 @@ public class MKSwiftBXScanFilterView: UIView {
         let label = UILabel()
         label.textColor = .darkText
         label.textAlignment = .left
-        label.font = Font.MKFont(14.0)
+        label.font = MKFont.font(14.0)
         label.text = "-100dBm"
         
         let lineView = UIView()
@@ -326,7 +326,7 @@ public class MKSwiftBXScanFilterView: UIView {
     
     private lazy var maxLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Color.rgb(15, 131, 255)
+        label.textColor = MKColor.rgb(15, 131, 255)
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 11)
         label.text = "0dBm"
@@ -337,7 +337,7 @@ public class MKSwiftBXScanFilterView: UIView {
         let label = UILabel()
         label.textColor = .gray
         label.textAlignment = .left
-        label.font = Font.MKFont(11.0)
+        label.font = MKFont.font(11.0)
         label.text = "-100dBm"
         return label
     }()
@@ -345,7 +345,7 @@ public class MKSwiftBXScanFilterView: UIView {
     private lazy var noteLabel1: UILabel = {
         let label = UILabel()
         label.textColor = .orange
-        label.font = Font.MKFont(11.0)
+        label.font = MKFont.font(11.0)
         label.numberOfLines = 0
         label.textAlignment = .left
         label.text = noteMsg1
@@ -355,7 +355,7 @@ public class MKSwiftBXScanFilterView: UIView {
     private lazy var noteLabel2: UILabel = {
         let label = UILabel()
         label.textColor = .orange
-        label.font = Font.MKFont(11.0)
+        label.font = MKFont.font(11.0)
         label.numberOfLines = 0
         label.textAlignment = .left
         label.text = noteMsg2

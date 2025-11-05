@@ -193,13 +193,13 @@ public class MKSwiftBXSlotConfigBeaconCell: MKSwiftBaseCell, @preconcurrency MKS
     
     private lazy var majorTextField: MKSwiftTextField = {
         let textField = MKSwiftTextField(textFieldType: .realNumberOnly)
-        textField.textColor = Color.defaultText
+        textField.textColor = MKColor.defaultText
         textField.placeholder = "0~65535"
         textField.maxLength = 5
-        textField.font = Font.MKFont(15.0)
+        textField.font = MKFont.font(15.0)
         textField.layer.masksToBounds = true
         textField.layer.borderWidth = 0.5
-        textField.layer.borderColor = Color.line.cgColor
+        textField.layer.borderColor = MKColor.line.cgColor
         textField.layer.cornerRadius = 3
         return textField
     }()
@@ -210,13 +210,13 @@ public class MKSwiftBXSlotConfigBeaconCell: MKSwiftBaseCell, @preconcurrency MKS
     
     private lazy var minorTextField: MKSwiftTextField = {
         let textField = MKSwiftTextField(textFieldType: .realNumberOnly)
-        textField.textColor = Color.defaultText
+        textField.textColor = MKColor.defaultText
         textField.placeholder = "0~65535"
         textField.maxLength = 5
-        textField.font = Font.MKFont(15.0)
+        textField.font = MKFont.font(15.0)
         textField.layer.masksToBounds = true
         textField.layer.borderWidth = 0.5
-        textField.layer.borderColor = Color.line.cgColor
+        textField.layer.borderColor = MKColor.line.cgColor
         textField.layer.cornerRadius = 3
         return textField
     }()
@@ -226,18 +226,18 @@ public class MKSwiftBXSlotConfigBeaconCell: MKSwiftBaseCell, @preconcurrency MKS
     }()
     
     private lazy var hexLabel: UILabel = {
-        return MKSwiftUIAdaptor.createNormalLabel(font: Font.MKFont(12.0), text: "0x")
+        return MKSwiftUIAdaptor.createNormalLabel(font: MKFont.font(12.0), text: "0x")
     }()
     
     private lazy var uuidTextField: MKSwiftTextField = {
         let textField = MKSwiftTextField(textFieldType: .hexCharOnly)
-        textField.textColor = Color.defaultText
+        textField.textColor = MKColor.defaultText
         textField.placeholder = "16bytes"
         textField.maxLength = 32
-        textField.font = Font.MKFont(15.0)
+        textField.font = MKFont.font(15.0)
         textField.layer.masksToBounds = true
         textField.layer.borderWidth = 0.5
-        textField.layer.borderColor = Color.line.cgColor
+        textField.layer.borderColor = MKColor.line.cgColor
         textField.layer.cornerRadius = 3
         return textField
     }()

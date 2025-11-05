@@ -173,9 +173,9 @@ public class MKSwiftBXTriggerHumidityView: UIView {
     
     private lazy var msgLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Color.defaultText
+        label.textColor = MKColor.defaultText
         label.textAlignment = .left
-        label.attributedText = MKSwiftUIAdaptor.createAttributedString(strings: ["Humidity threshold","   (0%~95%)"], fonts: [Font.MKFont(13.0),Font.MKFont(11.0)], colors: [Color.defaultText,Color.rgb(223, 223, 223)])
+        label.attributedText = MKSwiftUIAdaptor.createAttributedString(strings: ["Humidity threshold","   (0%~95%)"], fonts: [MKFont.font(13.0),MKFont.font(11.0)], colors: [MKColor.defaultText,MKColor.rgb(223, 223, 223)])
         
         return label
     }()
@@ -190,7 +190,7 @@ public class MKSwiftBXTriggerHumidityView: UIView {
     }()
     
     private lazy var sliderValueLabel: UILabel = {
-        let label = MKSwiftUIAdaptor.createNormalLabel(font: Font.MKFont(12.0),text: "0%")
+        let label = MKSwiftUIAdaptor.createNormalLabel(font: MKFont.font(12.0),text: "0%")
         return label
     }()
     
@@ -201,7 +201,7 @@ public class MKSwiftBXTriggerHumidityView: UIView {
     }()
     
     private lazy var startLabel: UILabel = {
-        let label = MKSwiftUIAdaptor.createNormalLabel(font: Font.MKFont(11.0),text: "Start advertising")
+        let label = MKSwiftUIAdaptor.createNormalLabel(font: MKFont.font(11.0),text: "Start advertising")
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(startLabelPressed)))
         return label
@@ -214,7 +214,7 @@ public class MKSwiftBXTriggerHumidityView: UIView {
     }()
     
     private lazy var stopLabel: UILabel = {
-        let label = MKSwiftUIAdaptor.createNormalLabel(font: Font.MKFont(11.0),text: "Stop advertising")
+        let label = MKSwiftUIAdaptor.createNormalLabel(font: MKFont.font(11.0),text: "Stop advertising")
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(stopLabelPressed)))
         return label
@@ -222,10 +222,10 @@ public class MKSwiftBXTriggerHumidityView: UIView {
     
     private lazy var noteMsgLabel: UILabel = {
         let label = UILabel()
-        label.textColor = Color.rgb(229, 173, 140)
+        label.textColor = MKColor.rgb(229, 173, 140)
         label.textAlignment = .left
         label.numberOfLines = 0
-        label.font = Font.MKFont(11.0)
+        label.font = MKFont.font(11.0)
         return label
     }()
 }

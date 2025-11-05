@@ -114,7 +114,7 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
             make.centerX.equalTo(rssiIcon)
             make.width.equalTo(40)
             make.top.equalTo(rssiIcon.snp.bottom).offset(5)
-            make.height.equalTo(Font.MKFont(10.0).lineHeight)
+            make.height.equalTo(MKFont.font(10.0).lineHeight)
         }
         
         let nameWidth = contentView.frame.size.width - 2 * offsetX - rssiIconWidth - 10.0 - 8.0 - connectButtonWidth
@@ -148,13 +148,13 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
             make.left.equalTo(nameLabel.snp.left)
             make.right.equalTo(tamperLabel.snp.left).offset(-5.0)
             make.centerY.equalTo(centerBackView.snp.centerY)
-            make.height.equalTo(Font.MKFont(13.0).lineHeight)
+            make.height.equalTo(MKFont.font(13.0).lineHeight)
         }
         tamperLabel.snp.remakeConstraints { make in
             make.right.equalTo(-offsetX)
             make.width.equalTo(85.0)
             make.centerY.equalTo(centerBackView.snp.centerY)
-            make.height.equalTo(Font.MKFont(10.0).lineHeight)
+            make.height.equalTo(MKFont.font(10.0).lineHeight)
         }
         
         bottomBackView.snp.remakeConstraints { make in
@@ -166,31 +166,31 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
             make.centerX.equalTo(batteryIcon.snp.centerX)
             make.width.equalTo(45.0)
             make.top.equalTo(3.0)
-            make.height.equalTo(Font.MKFont(15.0).lineHeight)
+            make.height.equalTo(MKFont.font(15.0).lineHeight)
         }
         txPowerLabel.snp.remakeConstraints { make in
             make.left.equalTo(nameLabel.snp.left)
             make.width.equalTo(55.0)
             make.centerY.equalTo(batteryLabel.snp.centerY)
-            make.height.equalTo(Font.MKFont(10.0).lineHeight)
+            make.height.equalTo(MKFont.font(10.0).lineHeight)
         }
         txPowerValueLabel.snp.remakeConstraints { make in
             make.left.equalTo(txPowerLabel.snp.right)
             make.width.equalTo(45.0)
             make.centerY.equalTo(txPowerLabel.snp.centerY)
-            make.height.equalTo(Font.MKFont(10.0).lineHeight)
+            make.height.equalTo(MKFont.font(10.0).lineHeight)
         }
         rangingDataLabel.snp.remakeConstraints { make in
             make.left.equalTo(txPowerValueLabel.snp.right).offset(5.0)
             make.right.equalTo(timeLabel.snp.left).offset(-5.0)
             make.centerY.equalTo(txPowerLabel.snp.centerY)
-            make.height.equalTo(Font.MKFont(10.0).lineHeight)
+            make.height.equalTo(MKFont.font(10.0).lineHeight)
         }
         timeLabel.snp.remakeConstraints { make in
             make.right.equalTo(-offsetX)
             make.width.equalTo(70.0)
             make.centerY.equalTo(txPowerLabel.snp.centerY)
-            make.height.equalTo(Font.MKFont(10.0).lineHeight)
+            make.height.equalTo(MKFont.font(10.0).lineHeight)
         }
     }
     
@@ -226,7 +226,7 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
     
     private func createLabel(font: UIFont, text: String? = nil) -> UILabel {
         let label = UILabel()
-        label.textColor = Color.rgb(184, 184, 184)
+        label.textColor = MKColor.rgb(184, 184, 184)
         label.textAlignment = .left
         label.font = font
         label.text = text
@@ -240,9 +240,9 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
         return view
     }()
     
-    private lazy var rssiLabel: UILabel = createLabel(font: Font.MKFont(10.0))
+    private lazy var rssiLabel: UILabel = createLabel(font: MKFont.font(10.0))
     private lazy var nameLabel: UILabel = {
-        let label = createLabel(font: Font.MKFont(15.0))
+        let label = createLabel(font: MKFont.font(15.0))
         label.textColor = .black
         label.numberOfLines = 0
         return label
@@ -253,7 +253,7 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
         button.backgroundColor = .blue
         button.setTitle("CONNECT", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = Font.MKFont(15.0)
+        button.titleLabel?.font = MKFont.font(15.0)
         button.layer.masksToBounds = true
         button.layer.cornerRadius = 10
         button.addTarget(self, action: #selector(connectButtonPressed), for: .touchUpInside)
@@ -266,13 +266,13 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
         return view
     }()
     
-    private lazy var batteryLabel: UILabel = createLabel(font: Font.MKFont(10.0))
+    private lazy var batteryLabel: UILabel = createLabel(font: MKFont.font(10.0))
     private lazy var macLabel: UILabel = createLabel(font: .systemFont(ofSize: 13))
-    private lazy var tamperLabel: UILabel = createLabel(font: Font.MKFont(10.0))
-    private lazy var txPowerLabel: UILabel = createLabel(font: Font.MKFont(10.0), text: "Tx Power:")
-    private lazy var txPowerValueLabel: UILabel = createLabel(font: Font.MKFont(10.0))
-    private lazy var rangingDataLabel: UILabel = createLabel(font: Font.MKFont(10.0))
-    private lazy var timeLabel: UILabel = createLabel(font: Font.MKFont(10.0))
+    private lazy var tamperLabel: UILabel = createLabel(font: MKFont.font(10.0))
+    private lazy var txPowerLabel: UILabel = createLabel(font: MKFont.font(10.0), text: "Tx Power:")
+    private lazy var txPowerValueLabel: UILabel = createLabel(font: MKFont.font(10.0))
+    private lazy var rangingDataLabel: UILabel = createLabel(font: MKFont.font(10.0))
+    private lazy var timeLabel: UILabel = createLabel(font: MKFont.font(10.0))
     
     private lazy var topBackView: UIView = UIView()
     private lazy var centerBackView: UIView = UIView()

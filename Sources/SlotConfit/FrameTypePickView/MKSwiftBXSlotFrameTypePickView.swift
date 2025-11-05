@@ -131,7 +131,7 @@ public class MKSwiftBXSlotFrameTypePickView: UIView {
         picker.delegate = self
         
         picker.layer.masksToBounds = true
-        picker.layer.borderColor = Color.navBar.cgColor
+        picker.layer.borderColor = MKColor.navBar.cgColor
         picker.layer.borderWidth = 0.5
         picker.layer.cornerRadius = 4
         return picker
@@ -183,8 +183,8 @@ extension MKSwiftBXSlotFrameTypePickView: UIPickerViewDataSource, UIPickerViewDe
     
     private func attributedTitle(for model: MKSwiftBXSlotFrameTypePickViewModel) -> NSAttributedString {
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: Font.MKFont(13.0),
-            .foregroundColor: Color.navBar
+            .font: MKFont.font(13.0),
+            .foregroundColor: MKColor.navBar
         ]
         return NSAttributedString(string: model.frameName, attributes: attributes)
     }

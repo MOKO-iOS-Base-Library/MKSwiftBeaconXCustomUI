@@ -173,7 +173,7 @@ public class MKSwiftBXSlotConfigTriggerCell: MKSwiftBaseCell, @preconcurrency MK
             make.left.equalToSuperview().offset(15)
             make.width.equalTo(100)
             make.centerY.equalTo(triggerLabel)
-            make.height.equalTo(Font.MKFont(15.0).lineHeight)
+            make.height.equalTo(MKFont.font(15.0).lineHeight)
         }
         
         triggerLabel.snp.makeConstraints { make in
@@ -513,9 +513,9 @@ public class MKSwiftBXSlotConfigTriggerCell: MKSwiftBaseCell, @preconcurrency MK
         }
         
         var error = false
-        if tempModel.index == 1 && (!Valid.isStringValid(tempModel.startValue) || Int(tempModel.startValue!)! < 1 || Int(tempModel.startValue!)! > 65535) {
+        if tempModel.index == 1 && (!MKValid.isStringValid(tempModel.startValue) || Int(tempModel.startValue!)! < 1 || Int(tempModel.startValue!)! > 65535) {
             error = true
-        }else if tempModel.index == 2 && (!Valid.isStringValid(tempModel.stopValue) || Int(tempModel.stopValue!)! < 1 || Int(tempModel.stopValue!)! > 65535) {
+        }else if tempModel.index == 2 && (!MKValid.isStringValid(tempModel.stopValue) || Int(tempModel.stopValue!)! < 1 || Int(tempModel.stopValue!)! > 65535) {
             error = true
         }
         
@@ -629,7 +629,7 @@ public class MKSwiftBXSlotConfigTriggerCell: MKSwiftBaseCell, @preconcurrency MK
     }()
     
     private lazy var triggerLabel: UILabel = {
-        let label = MKSwiftUIAdaptor.createNormalLabel(font: Font.MKFont(13.0),text: "Press button twice")
+        let label = MKSwiftUIAdaptor.createNormalLabel(font: MKFont.font(13.0),text: "Press button twice")
         label.isHidden = true
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(triggerLabelPressed)))

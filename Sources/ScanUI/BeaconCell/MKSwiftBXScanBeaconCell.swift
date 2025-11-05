@@ -33,7 +33,7 @@ public class MKSwiftBXScanBeaconCell: MKSwiftBaseCell {
     private let offsetY: CGFloat = 10.0
     private let leftIconWidth: CGFloat = 7.0
     private let leftIconHeight: CGFloat = 7.0
-    private let msgFont = Font.MKFont(12.0)
+    private let msgFont = MKFont.font(12.0)
     
     // MARK: - Public Methods
     public class func initCell(with tableView: UITableView) -> MKSwiftBXScanBeaconCell {
@@ -48,8 +48,8 @@ public class MKSwiftBXScanBeaconCell: MKSwiftBaseCell {
     public class func getCellHeight(with uuid: String?) -> CGFloat {
         guard !uuid!.isEmpty else { return 125.0 }
         
-        let width = Screen.width - 2 * 10.0 - 140.0
-        let size = uuid!.size(withFont: Font.MKFont(16.0), maxSize: CGSize(width: width, height: .greatestFiniteMagnitude))
+        let width = MKScreen.width - 2 * 10.0 - 140.0
+        let size = uuid!.size(withFont: MKFont.font(16.0), maxSize: CGSize(width: width, height: .greatestFiniteMagnitude))
         
         return 120 + size.height
     }
@@ -100,7 +100,7 @@ public class MKSwiftBXScanBeaconCell: MKSwiftBaseCell {
             make.left.equalTo(leftIcon.snp.right).offset(5.0)
             make.width.equalTo(100.0)
             make.centerY.equalTo(leftIcon.snp.centerY)
-            make.height.equalTo(Font.MKFont(15.0).lineHeight)
+            make.height.equalTo(MKFont.font(15.0).lineHeight)
         }
         uuidLabel.snp.remakeConstraints { make in
             make.left.equalTo(typeLabel.snp.left)
@@ -207,7 +207,7 @@ public class MKSwiftBXScanBeaconCell: MKSwiftBaseCell {
     
     private func createLabel(font: UIFont, text: String? = nil) -> UILabel {
         let label = UILabel()
-        label.textColor = Color.rgb(184, 184, 184)
+        label.textColor = MKColor.rgb(184, 184, 184)
         label.textAlignment = .left
         label.font = font
         label.text = text
@@ -221,7 +221,7 @@ public class MKSwiftBXScanBeaconCell: MKSwiftBaseCell {
         return view
     }()
     
-    private lazy var typeLabel: UILabel = createLabel(font: Font.MKFont(15), text: "iBeacon")
+    private lazy var typeLabel: UILabel = createLabel(font: MKFont.font(15), text: "iBeacon")
     private lazy var rssiLabel: UILabel = createLabel(font: msgFont, text: "RSSI@1m")
     private lazy var rssiValueLabel: UILabel = createLabel(font: msgFont)
     private lazy var txPowerLabel: UILabel = createLabel(font: msgFont, text: "Tx power")

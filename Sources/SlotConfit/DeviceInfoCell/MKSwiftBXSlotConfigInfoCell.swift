@@ -146,12 +146,12 @@ public class MKSwiftBXSlotConfigInfoCell: UITableViewCell, @preconcurrency MKSwi
     
     private lazy var textField: MKSwiftTextField = {
         let textField = MKSwiftTextField(textFieldType: .normal)
-        textField.textColor = Color.defaultText
+        textField.textColor = MKColor.defaultText
         textField.maxLength = 5
-        textField.font = Font.MKFont(15.0)
+        textField.font = MKFont.font(15.0)
         textField.layer.masksToBounds = true
         textField.layer.borderWidth = 0.5
-        textField.layer.borderColor = Color.line.cgColor
+        textField.layer.borderColor = MKColor.line.cgColor
         textField.layer.cornerRadius = 3
         return textField
     }()

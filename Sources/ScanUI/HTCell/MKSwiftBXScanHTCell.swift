@@ -31,7 +31,7 @@ public class MKSwiftBXScanHTCell: MKSwiftBaseCell {
     private let leftIconWidth: CGFloat = 7.0
     private let leftIconHeight: CGFloat = 7.0
     private let msgLabelWidth: CGFloat = 100.0
-    private let msgFont = Font.MKFont(12.0)
+    private let msgFont = MKFont.font(12.0)
     
     // MARK: - Public Methods
     public class func initCell(with tableView: UITableView) -> MKSwiftBXScanHTCell {
@@ -85,7 +85,7 @@ public class MKSwiftBXScanHTCell: MKSwiftBaseCell {
             make.left.equalTo(leftIcon.snp.right).offset(5)
             make.right.equalTo(-offsetX)
             make.centerY.equalTo(leftIcon.snp.centerY)
-            make.height.equalTo(Font.MKFont(15.0).lineHeight)
+            make.height.equalTo(MKFont.font(15.0).lineHeight)
         }
         txPowerLabel.snp.remakeConstraints { make in
             make.left.equalTo(typeLabel.snp.left)
@@ -162,7 +162,7 @@ public class MKSwiftBXScanHTCell: MKSwiftBaseCell {
     
     private func createLabel(font: UIFont, text: String? = nil) -> UILabel {
         let label = UILabel()
-        label.textColor = Color.rgb(184, 184, 184)
+        label.textColor = MKColor.rgb(184, 184, 184)
         label.textAlignment = .left
         label.font = font
         label.text = text
@@ -176,7 +176,7 @@ public class MKSwiftBXScanHTCell: MKSwiftBaseCell {
         return view
     }()
     
-    private lazy var typeLabel: UILabel = createLabel(font: Font.MKFont(15.0), text: "Temperature&Humidity")
+    private lazy var typeLabel: UILabel = createLabel(font: MKFont.font(15.0), text: "Temperature&Humidity")
     private lazy var rssiLabel: UILabel = createLabel(font: msgFont, text: "Ranging data")
     private lazy var rssiValueLabel: UILabel = createLabel(font: msgFont)
     private lazy var txPowerLabel: UILabel = createLabel(font: msgFont, text: "Tx power")
