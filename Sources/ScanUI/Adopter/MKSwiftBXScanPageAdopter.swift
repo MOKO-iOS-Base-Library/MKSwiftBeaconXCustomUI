@@ -7,6 +7,8 @@
 
 import UIKit
 
+import MKSwiftCustomUI
+
 public struct MKSwiftBXScanPageAdopter {
     
     /// Supported cell types

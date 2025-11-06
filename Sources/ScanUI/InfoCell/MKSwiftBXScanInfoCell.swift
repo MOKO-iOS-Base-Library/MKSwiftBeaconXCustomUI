@@ -6,9 +6,12 @@
 //
 
 import UIKit
-import SnapKit
-import MKBaseSwiftModule
 import CoreBluetooth
+
+import SnapKit
+
+import MKBaseSwiftModule
+import MKSwiftCustomUI
 
 public protocol MKSwiftBXScanInfoCellProtocol: AnyObject {
     var peripheral: CBPeripheral? { get set }

@@ -7,8 +7,11 @@
 
 import UIKit
 import CoreBluetooth
+
 import SnapKit
+
 import MKBaseSwiftModule
+import MKSwiftCustomUI
 
 public class MKSwiftBXScanBeaconCellModel:MKSwiftBXScanBaseModel  {
     public var rssi1M: String = ""

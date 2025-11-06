@@ -6,8 +6,11 @@
 //
 
 import UIKit
+
 import SnapKit
+
 import MKBaseSwiftModule
+import MKSwiftCustomUI
 
 public class MKSwiftBXScanURLCellModel: MKSwiftBXScanBaseModel {
     public var txPower: String = ""

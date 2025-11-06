@@ -6,8 +6,11 @@
 //
 
 import UIKit
+
 import SnapKit
+
 import MKBaseSwiftModule
+import MKSwiftCustomUI
 
 public class MKSwiftBXScanTLMCellModel: MKSwiftBXScanBaseModel {
     public var version: String = ""

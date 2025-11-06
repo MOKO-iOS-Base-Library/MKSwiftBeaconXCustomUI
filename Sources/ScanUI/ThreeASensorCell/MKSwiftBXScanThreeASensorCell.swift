@@ -6,8 +6,11 @@
 //
 
 import UIKit
+
 import SnapKit
+
 import MKBaseSwiftModule
+import MKSwiftCustomUI
 
 public class MKSwiftBXScanThreeASensorCellModel: MKSwiftBXScanBaseModel {
     public var rssi0M: String = ""

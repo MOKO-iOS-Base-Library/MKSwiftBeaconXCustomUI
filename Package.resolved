@@ -1,5 +1,5 @@
 {
-  "originHash" : "04f2aaabd460c6ddf8f70a9d3894e6addbb4351f62beaef00676d494f9ea29e5",
+  "originHash" : "dc541213fa9c7b3e3a42a5e7c6563b2915e64bdec4eb0f45586e40f418dc8352",
   "pins" : [
     {
       "identity" : "devicekit",
@@ -51,8 +51,17 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MOKO-iOS-Base-Library/MKBaseSwiftModule.git",
       "state" : {
-        "revision" : "aa488d2d09d0cc3faf068ad203f2ef8d739483ad",
-        "version" : "1.0.19"
+        "revision" : "55914eba2655699fe487d6499fdacb7face3034d",
+        "version" : "1.0.22"
+      }
+    },
+    {
+      "identity" : "mkswiftcustomui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MOKO-iOS-Base-Library/MKSwiftCustomUI.git",
+      "state" : {
+        "revision" : "b720cceebabef3b6f25a439ecaec4920fff76abf",
+        "version" : "1.0.0"
       }
     },
     {
