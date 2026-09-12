@@ -198,7 +198,7 @@ public class MKSwiftBXScanThreeASensorCell: MKSwiftBaseCell {
         txPowerValueLabel.text = "\(dataModel.txPower)dBm"
         dateRateValueLabel.text = fetchDataRate(dataModel.samplingRate)
         scaleValueLabel.text = fetchScaleData(dataModel.accelerationOfGravity)
-        senValueLabel.text = String(format: "%.1fg", (dataModel.sensitivity as NSString).doubleValue * 0.1)
+        senValueLabel.text = String(format: "%.1fg", Double((dataModel.sensitivity as NSString).integerValue) * 0.1)
         
         if dataModel.needParse {
             let scale = fetchRawScale(dataModel.accelerationOfGravity)
@@ -282,7 +282,7 @@ public class MKSwiftBXScanThreeASensorCell: MKSwiftBaseCell {
     
     private lazy var typeLabel: UILabel = {
         let label = createLabel(with: MKFont.font(15.0))
-        label.textColor = .black
+        label.textColor = MKColor.defaultText
         label.text = "3-axis accelerometer"
         return label
     }()

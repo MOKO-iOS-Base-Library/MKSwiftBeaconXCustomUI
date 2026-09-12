@@ -327,8 +327,8 @@ public class MKSwiftBXSlotConfigTriggerCell: MKSwiftBaseCell, @preconcurrency MK
     private func setupHumidityView() {
         if let conditions = dataModel?.conditions, !conditions.isEmpty {
             humidityViewModel.sliderValue = (conditions["humidity"] as? NSNumber)?.floatValue ?? 0
-            temperViewModel.above = (selectedTriggerIndex == 4)
-            temperViewModel.start = (conditions["start"] as? NSNumber)?.boolValue ?? false
+            humidityViewModel.above = (selectedTriggerIndex == 4)
+            humidityViewModel.start = (conditions["start"] as? NSNumber)?.boolValue ?? false
         }
         humidityView.isHidden = false
         humidityView.dataModel = humidityViewModel

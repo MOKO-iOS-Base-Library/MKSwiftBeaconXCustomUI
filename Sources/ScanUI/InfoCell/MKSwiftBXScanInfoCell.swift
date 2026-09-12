@@ -25,6 +25,7 @@ public protocol MKSwiftBXScanInfoCellProtocol: AnyObject {
     var txPower: String? { get set }
     var battery: String? { get set }
     var macAddress: String? { get set }
+    var tamperSensor: Bool { get set }
     var tamperAlert: Bool { get set }
 }
 
@@ -217,7 +218,7 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
         nameLabel.text = model.deviceName?.isEmpty ?? true ? "N/A" : model.deviceName
         macLabel.text = "MAC:\(model.macAddress?.isEmpty ?? true ? "N/A" : model.macAddress ?? "")"
         batteryLabel.text = model.battery?.isEmpty ?? true ? "N/A" : "\(model.battery ?? "")mV"
-        tamperLabel.text = model.tamperAlert ? "Tamper alert" : "Tamper normal"
+        tamperLabel.text = model.tamperSensor ? (model.tamperAlert ? "Tamper alert" : "Tamper normal") : ""
         
         setNeedsLayout()
     }
@@ -246,7 +247,7 @@ public class MKSwiftBXScanInfoCell: MKSwiftBaseCell {
     private lazy var rssiLabel: UILabel = createLabel(font: MKFont.font(10.0))
     private lazy var nameLabel: UILabel = {
         let label = createLabel(font: MKFont.font(15.0))
-        label.textColor = .black
+        label.textColor = MKColor.defaultText
         label.numberOfLines = 0
         return label
     }()

@@ -25,29 +25,20 @@ public class MKBXQuickSwitchCellLayout: UICollectionViewFlowLayout {
         
         // 复制属性以避免修改原始值
         let mutableAttributes = attributes.map { $0.copy() as! UICollectionViewLayoutAttributes }
-        
-        // 调整间距
+
         for i in 1..<mutableAttributes.count {
             let current = mutableAttributes[i]
             let previous = mutableAttributes[i-1]
-            
+
             let maximumSpacing: CGFloat = 11.0
             let origin = previous.frame.maxX
-            
+
             if origin + maximumSpacing + current.frame.size.width < collectionViewContentSize.width {
                 current.frame.origin.x = origin + maximumSpacing
-            } else {
-                // 换行处理
-                current.frame.origin.x = sectionInset.left
             }
         }
-        
+
         return mutableAttributes
-    }
-    
-    public override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        // 当视图大小变化时重新布局
-        return true
     }
 }
 
@@ -144,7 +135,7 @@ public class MKBXQuickSwitchCell: UICollectionViewCell {
         let image = switchButton.isSelected ? moduleIcon(name: "mk_swift_bx_switchSelectedIcon", in: .module) : moduleIcon(name: "mk_swift_bx_switchUnselectedIcon", in: .module)
         switchButton.setImage(image, for: .normal)
         
-        let statusColor = switchButton.isSelected ? UIColor.blue : UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
+        let statusColor = switchButton.isSelected ? MKColor.navBar : UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
         switchStatusLabel.textColor = statusColor
         switchStatusLabel.text = switchButton.isSelected ? "Enabled" : "Disabled"
     }
@@ -154,10 +145,10 @@ public class MKBXQuickSwitchCell: UICollectionViewCell {
         let backView = UIView()
         backView.backgroundColor = .white
         backView.layer.masksToBounds = false
-        backView.layer.borderColor = UIColor.lightGray.cgColor
-        backView.layer.borderWidth = 0.5
+        backView.layer.borderColor = MKColor.fromHex(0xe8e8e8).cgColor
+        backView.layer.borderWidth = UIScreen.main.scale == 2.0 ? 0.5 : 0.34
         backView.layer.cornerRadius = 6.0
-        backView.layer.shadowColor = UIColor.darkText.cgColor
+        backView.layer.shadowColor = MKColor.defaultText.cgColor
         backView.layer.shadowOffset = CGSize(width: 1.5, height: 3)
         backView.layer.shadowOpacity = 0.8
         return backView
@@ -166,8 +157,8 @@ public class MKBXQuickSwitchCell: UICollectionViewCell {
     private lazy var msgLabel: UILabel = {
         let msgLabel = UILabel()
         msgLabel.textAlignment = .center
-        msgLabel.textColor = .darkText
-        msgLabel.font = UIFont.systemFont(ofSize: 13.0)
+        msgLabel.textColor = MKColor.defaultText
+        msgLabel.font = MKFont.font(13.0)
         msgLabel.numberOfLines = 0
         return msgLabel
     }()
@@ -184,7 +175,7 @@ public class MKBXQuickSwitchCell: UICollectionViewCell {
         let switchStatusLabel = UILabel()
         switchStatusLabel.textAlignment = .left
         switchStatusLabel.textColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 1.0)
-        switchStatusLabel.font = UIFont.systemFont(ofSize: 13.0)
+        switchStatusLabel.font = MKFont.font(13.0)
         return switchStatusLabel
     }()
 }

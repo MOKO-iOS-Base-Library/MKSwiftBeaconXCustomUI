@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "MKSwiftBeaconXCustomUI",
     platforms: [
-        .iOS(.v15),  // 最低支持iOS 15
+        .iOS(.v18),  // 最低支持iOS 15
     ],
     products: [
         .library(

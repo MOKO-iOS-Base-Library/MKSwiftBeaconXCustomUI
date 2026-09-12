@@ -157,7 +157,7 @@ public class MKSwiftBXScanURLCell: MKSwiftBaseCell {
     
     private lazy var typeLabel: UILabel = {
         let label = createLabel(with: MKFont.font(15.0))
-        label.textColor = .black
+        label.textColor = MKColor.defaultText
         label.text = "URL"
         return label
     }()

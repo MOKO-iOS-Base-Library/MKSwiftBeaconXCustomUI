@@ -224,7 +224,11 @@ public class MKSwiftBXScanBeaconCell: MKSwiftBaseCell {
         return view
     }()
     
-    private lazy var typeLabel: UILabel = createLabel(font: MKFont.font(15), text: "iBeacon")
+    private lazy var typeLabel: UILabel = {
+        let label = createLabel(font: MKFont.font(15), text: "iBeacon")
+        label.textColor = MKColor.defaultText
+        return label
+    }()
     private lazy var rssiLabel: UILabel = createLabel(font: msgFont, text: "RSSI@1m")
     private lazy var rssiValueLabel: UILabel = createLabel(font: msgFont)
     private lazy var txPowerLabel: UILabel = createLabel(font: msgFont, text: "Tx power")

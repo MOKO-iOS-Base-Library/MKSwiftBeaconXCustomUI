@@ -20,7 +20,7 @@ public class MKSwiftBXSlotConfigInfoCellModel {
     public init() {}
 }
 
-public class MKSwiftBXSlotConfigInfoCell: UITableViewCell, @preconcurrency MKSwiftBXSlotConfigCellProtocol {
+public class MKSwiftBXSlotConfigInfoCell: MKSwiftBaseCell, @preconcurrency MKSwiftBXSlotConfigCellProtocol {
     public func slotConfigCellParams() -> [String : Any] {
         guard let deviceName = textField.text, !deviceName.isEmpty else {
             return [

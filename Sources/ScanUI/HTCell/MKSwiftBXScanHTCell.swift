@@ -179,7 +179,11 @@ public class MKSwiftBXScanHTCell: MKSwiftBaseCell {
         return view
     }()
     
-    private lazy var typeLabel: UILabel = createLabel(font: MKFont.font(15.0), text: "Temperature&Humidity")
+    private lazy var typeLabel: UILabel = {
+        let label = createLabel(font: MKFont.font(15.0), text: "Temperature&Humidity")
+        label.textColor = MKColor.defaultText
+        return label
+    }()
     private lazy var rssiLabel: UILabel = createLabel(font: msgFont, text: "Ranging data")
     private lazy var rssiValueLabel: UILabel = createLabel(font: msgFont)
     private lazy var txPowerLabel: UILabel = createLabel(font: msgFont, text: "Tx power")

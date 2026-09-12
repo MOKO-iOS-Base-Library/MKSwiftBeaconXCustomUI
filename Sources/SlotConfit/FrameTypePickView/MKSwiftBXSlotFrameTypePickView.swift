@@ -61,9 +61,8 @@ public class MKSwiftBXSlotFrameTypePickView: UIView {
         self.frameType = frameType
         pickerView.reloadAllComponents()
         
-        if let selectedRow = dataList.firstIndex(where: { $0.frameType == frameType }) {
-            pickerView.selectRow(selectedRow, inComponent: 0, animated: true)
-        }
+        let selectedRow = dataList.firstIndex(where: { $0.frameType == frameType }) ?? 0
+        pickerView.selectRow(selectedRow, inComponent: 0, animated: true)
     }
     
     // MARK: - UI Setup
@@ -121,9 +120,9 @@ public class MKSwiftBXSlotFrameTypePickView: UIView {
     
     private lazy var typeLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+        label.textColor = MKColor.defaultText
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 15)
+        label.font = MKFont.font(15.0)
         label.text = "Frame type"
         return label
     }()
@@ -159,10 +158,10 @@ extension MKSwiftBXSlotFrameTypePickView: UIPickerViewDataSource, UIPickerViewDe
     public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let titleLabel: UILabel = view as? UILabel ?? {
             let label = UILabel()
-            label.textColor = .black
+            label.textColor = MKColor.defaultText
             label.adjustsFontSizeToFitWidth = true
             label.textAlignment = .center
-            label.font = UIFont.systemFont(ofSize: 12)
+            label.font = MKFont.font(12.0)
             return label
         }()
         

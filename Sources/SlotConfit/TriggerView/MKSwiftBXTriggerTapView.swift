@@ -119,69 +119,68 @@ public class MKSwiftBXTriggerTapView: UIView {
         let textFieldWidth: CGFloat = 65
         let unitLabelWidth: CGFloat = 75
         let msgLabelWidth = bounds.width - textFieldWidth - unitLabelWidth - 15 - 10
-        
+        let msgLabelDefaultHeight: CGFloat = 25
+
+        let msgSize1 = NSString(string: msgLabel1.text ?? "").size(withAttributes: [.font: msgLabel1.font])
+        let msgSize2 = NSString(string: msgLabel2.text ?? "").size(withAttributes: [.font: msgLabel2.font])
+        let msgSize4 = NSString(string: msgLabel4.text ?? "").size(withAttributes: [.font: msgLabel4.font])
+
         icon1.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.width.equalTo(10)
+            make.centerY.equalTo(msgLabel1.snp.centerY)
             make.height.equalTo(10)
         }
-        
+
         msgLabel1.snp.makeConstraints { make in
             make.left.equalTo(icon1.snp.right).offset(2)
             make.width.equalTo(msgLabelWidth)
             make.top.equalToSuperview().offset(5)
+            make.height.equalTo(max(msgLabelDefaultHeight, msgSize1.height))
         }
-        
-        icon1.snp.makeConstraints { make in
-            make.centerY.equalTo(msgLabel1.snp.centerY)
-        }
-        
+
         icon2.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.width.equalTo(10)
+            make.centerY.equalTo(msgLabel2.snp.centerY)
             make.height.equalTo(10)
         }
-        
+
         msgLabel2.snp.makeConstraints { make in
             make.left.equalTo(icon2.snp.right).offset(2)
             make.width.equalTo(msgLabelWidth)
             make.top.equalTo(msgLabel1.snp.bottom).offset(10)
+            make.height.equalTo(max(msgLabelDefaultHeight, msgSize2.height))
         }
-        
-        icon2.snp.makeConstraints { make in
-            make.centerY.equalTo(msgLabel2.snp.centerY)
-        }
-        
+
         startField.snp.makeConstraints { make in
             make.right.equalTo(unitLabel1.snp.left).offset(-1)
             make.width.equalTo(textFieldWidth)
             make.centerY.equalTo(msgLabel2.snp.centerY)
             make.height.equalTo(25)
         }
-        
+
         unitLabel1.snp.makeConstraints { make in
             make.right.equalToSuperview()
             make.width.equalTo(unitLabelWidth)
             make.centerY.equalTo(msgLabel2.snp.centerY)
             make.height.equalTo(25)
         }
-        
+
         icon4.snp.makeConstraints { make in
             make.left.equalToSuperview()
             make.width.equalTo(10)
+            make.centerY.equalTo(msgLabel4.snp.centerY)
             make.height.equalTo(10)
         }
-        
+
         msgLabel4.snp.makeConstraints { make in
             make.left.equalTo(icon4.snp.right).offset(2)
             make.width.equalTo(msgLabelWidth)
             make.top.equalTo(msgLabel2.snp.bottom).offset(10)
+            make.height.equalTo(max(msgLabelDefaultHeight, msgSize4.height))
         }
-        
-        icon4.snp.makeConstraints { make in
-            make.centerY.equalTo(msgLabel4.snp.centerY)
-        }
-        
+
         stopField.snp.makeConstraints { make in
             make.right.equalTo(unitLabel2.snp.left).offset(-1)
             make.width.equalTo(textFieldWidth)
@@ -255,14 +254,14 @@ public class MKSwiftBXTriggerTapView: UIView {
     
     private func createTextField() -> UITextField {
         let field = UITextField()
-        field.textColor = .black
+        field.textColor = MKColor.defaultText
         field.textAlignment = .center
-        field.font = UIFont.systemFont(ofSize: 12)
+        field.font = MKFont.font(12.0)
         field.borderStyle = .none
         field.keyboardType = .numberPad
         
         let lineView = UIView()
-        lineView.backgroundColor = .black
+        lineView.backgroundColor = MKColor.defaultText
         field.addSubview(lineView)
         lineView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()

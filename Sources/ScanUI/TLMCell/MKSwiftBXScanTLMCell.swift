@@ -164,10 +164,10 @@ public class MKSwiftBXScanTLMCell: MKSwiftBaseCell {
     }
     
     private func getTimeWithSec(_ second: Float) -> String {
-        let minutes = floor(second / 60)
+        var minutes = floor(second / 60)
         let sec = second - minutes * 60
         var hours1 = floor(second / (60 * 60))
-        hours1 = hours1 - 24 * floor(hours1 / 24)
+        minutes = minutes - hours1 * 60
         let day = floor(hours1 / 24)
         hours1 = hours1 - 24 * day
         return String(format: "%dd%dh%dm%.1fs", Int(day), Int(hours1), Int(minutes), sec)
@@ -183,7 +183,7 @@ public class MKSwiftBXScanTLMCell: MKSwiftBaseCell {
     
     private lazy var typeLabel: UILabel = {
         let label = createLabel(with: MKFont.font(15.0))
-        label.textColor = .black
+        label.textColor = MKColor.defaultText
         label.text = "Unencrypted TLM"
         return label
     }()

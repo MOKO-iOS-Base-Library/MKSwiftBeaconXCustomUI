@@ -139,7 +139,7 @@ public class MKSwiftBXSlotConfigURLCell: MKSwiftBaseCell, @preconcurrency MKSwif
         let pickView = MKSwiftPickerView()
         pickView.showPickView(with: urlHeaders, selectedRow: currentIndex) { [weak self] currentRow in
             guard let self = self else { return }
-            self.urlTypeLabel.text = self.urlHeaders[currentIndex]
+            self.urlTypeLabel.text = self.urlHeaders[currentRow]
         }
     }
     
