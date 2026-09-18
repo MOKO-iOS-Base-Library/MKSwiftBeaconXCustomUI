@@ -13,10 +13,10 @@ import MKBaseSwiftModule
 import MKSwiftCustomUI
 
 public class MKSwiftBXSlotConfigInfoCellModel {
-    var deviceName: String = ""
-    var nameMinLen: Int = 1
-    var nameMaxLen: Int = 20
-    
+    public var deviceName: String = ""
+    public var nameMinLen: Int = 1
+    public var nameMaxLen: Int = 20
+
     public init() {}
 }
 

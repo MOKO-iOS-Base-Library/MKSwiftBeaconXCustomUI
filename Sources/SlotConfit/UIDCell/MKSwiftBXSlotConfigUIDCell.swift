@@ -13,9 +13,9 @@ import MKBaseSwiftModule
 import MKSwiftCustomUI
 
 public class MKSwiftBXSlotConfigUIDCell {
-    var nameSpace: String = ""
-    var instanceID: String = ""
-    
+    public var nameSpace: String = ""
+    public var instanceID: String = ""
+
     public init() {}
 }
 
