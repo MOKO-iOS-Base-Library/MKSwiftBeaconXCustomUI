@@ -1,14 +1,12 @@
 //
-//  MKSwiftBXMKSwiftBXTriggerTapView.swift
+//  MKSwiftBXTriggerTapView.swift
 //  MKSwiftBeaconXCustomUI
 //
 //  Created by aa on 2025/6/25.
 //
 
 import UIKit
-
 import SnapKit
-
 import MKBaseSwiftModule
 import MKSwiftCustomUI
 
@@ -28,13 +26,13 @@ public class MKSwiftBXTriggerTapViewModel {
         get { return _index }
         set { _index = newValue }
     }
-    
+
     private var _viewType: MKSwiftBXTriggerTapViewType = .double
     public var viewType: MKSwiftBXTriggerTapViewType {
         get { return _viewType }
         set { _viewType = newValue }
     }
-    
+
     private var _startValue: String?
     public var startValue: String? {
         get { return _startValue }
@@ -43,7 +41,7 @@ public class MKSwiftBXTriggerTapViewModel {
             _startValue = newValue
         }
     }
-    
+
     private var _stopValue: String?
     public var stopValue: String? {
         get { return _stopValue }
@@ -52,18 +50,18 @@ public class MKSwiftBXTriggerTapViewModel {
             _stopValue = newValue
         }
     }
-    
+
     public init() {}
 }
 
 public protocol MKSwiftBXTriggerTapViewDelegate: AnyObject {
-    
+
     /// 用户选择了触发方式
     /// - Parameters:
     ///   - index: 0:Start and keep advertising,1:Start advertising for,2:Stop advertising for
     ///   - viewType: 当前触发回调的view类型
     func MKSwiftBXTriggerTapViewIndexChanged(_ index: Int, viewType: MKSwiftBXTriggerTapViewType)
-    
+
     /// index=1的时候，输入框的值
     func MKSwiftBXTriggerTapViewStartValueChanged(_ startValue: String, viewType: MKSwiftBXTriggerTapViewType)
     /// index=2的时候，输入框的值
@@ -71,36 +69,36 @@ public protocol MKSwiftBXTriggerTapViewDelegate: AnyObject {
 }
 
 public class MKSwiftBXTriggerTapView: UIView {
-    
+
     public weak var delegate: MKSwiftBXTriggerTapViewDelegate?
-    
+
     public var dataModel: MKSwiftBXTriggerTapViewModel? {
         didSet {
             updateContent()
         }
     }
-    
+
     private var currentIndex: Int = 0
-    
+
     // MARK: - Initialization
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupUI()
     }
-    
+
     public override func layoutSubviews() {
         super.layoutSubviews()
         setupConstraints()
     }
-    
+
     // MARK: - UI Setup
-    
+
     private func setupUI() {
         addSubview(icon1)
         addSubview(icon2)
@@ -114,7 +112,7 @@ public class MKSwiftBXTriggerTapView: UIView {
         addSubview(stopField)
         addSubview(noteMsgLabel)
     }
-    
+
     private func setupConstraints() {
         let textFieldWidth: CGFloat = 65
         let unitLabelWidth: CGFloat = 75
@@ -187,23 +185,23 @@ public class MKSwiftBXTriggerTapView: UIView {
             make.centerY.equalTo(msgLabel4.snp.centerY)
             make.height.equalTo(25)
         }
-        
+
         unitLabel2.snp.makeConstraints { make in
             make.right.equalToSuperview()
             make.width.equalTo(unitLabelWidth)
             make.centerY.equalTo(msgLabel4.snp.centerY)
             make.height.equalTo(25)
         }
-        
+
         noteMsgLabel.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(stopField.snp.bottom).offset(5)
             make.bottom.equalToSuperview().offset(-10)
         }
     }
-    
+
     // MARK: - Actions
-    
+
     @objc private func msgLabel1Pressed() {
         if currentIndex == 0 { return }
         currentIndex = 0
@@ -211,7 +209,7 @@ public class MKSwiftBXTriggerTapView: UIView {
         updateNoteMsg()
         delegate?.MKSwiftBXTriggerTapViewIndexChanged(currentIndex, viewType: dataModel?.viewType ?? .double)
     }
-    
+
     @objc private func msgLabel2Pressed() {
         if currentIndex == 1 { return }
         currentIndex = 1
@@ -219,7 +217,7 @@ public class MKSwiftBXTriggerTapView: UIView {
         updateNoteMsg()
         delegate?.MKSwiftBXTriggerTapViewIndexChanged(currentIndex, viewType: dataModel?.viewType ?? .double)
     }
-    
+
     @objc private func msgLabel4Pressed() {
         if currentIndex == 2 { return }
         currentIndex = 2
@@ -227,21 +225,21 @@ public class MKSwiftBXTriggerTapView: UIView {
         updateNoteMsg()
         delegate?.MKSwiftBXTriggerTapViewIndexChanged(currentIndex, viewType: dataModel?.viewType ?? .double)
     }
-    
-    @objc private func startTextFieldValueChanged(text:String) {
+
+    @objc private func startTextFieldValueChanged(text: String) {
         guard currentIndex == 1 else { return }
         updateNoteMsg()
         delegate?.MKSwiftBXTriggerTapViewStartValueChanged(text, viewType: dataModel?.viewType ?? .double)
     }
-    
-    @objc private func stopTextFieldValueChanged(text:String) {
+
+    @objc private func stopTextFieldValueChanged(text: String) {
         guard currentIndex == 2 else { return }
         updateNoteMsg()
         delegate?.MKSwiftBXTriggerTapViewStopValueChanged(text, viewType: dataModel?.viewType ?? .double)
     }
-    
+
     // MARK: - Helper Methods
-    
+
     private func createMessageLabel() -> UILabel {
         let label = UILabel()
         label.textColor = MKColor.defaultText
@@ -251,39 +249,22 @@ public class MKSwiftBXTriggerTapView: UIView {
         label.isUserInteractionEnabled = true
         return label
     }
-    
-    private func createTextField() -> UITextField {
-        let field = UITextField()
-        field.textColor = MKColor.defaultText
-        field.textAlignment = .center
-        field.font = MKFont.font(12.0)
-        field.borderStyle = .none
-        field.keyboardType = .numberPad
-        
-        let lineView = UIView()
-        lineView.backgroundColor = MKColor.defaultText
-        field.addSubview(lineView)
-        lineView.snp.makeConstraints { make in
-            make.left.right.bottom.equalToSuperview()
-            make.height.equalTo(1)
-        }
-        
-        return field
-    }
-    
+
     private func attributedUnitText() -> NSAttributedString {
-        return MKSwiftUIAdaptor.createAttributedString(strings: ["s","   (1~65535)"], fonts: [MKFont.font(11),MKFont.font(10)], colors: [MKColor.defaultText,MKColor.rgb(223, 223, 223)])
+        return MKSwiftUIAdaptor.createAttributedString(strings: ["s", "   (1~65535)"],
+                                                        fonts: [MKFont.font(11), MKFont.font(10)],
+                                                        colors: [MKColor.defaultText, MKColor.rgb(223, 223, 223)])
     }
-    
+
     private func updateSelectedIcon() {
         icon1.image = moduleIcon(name: currentIndex == 0 ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
         icon2.image = moduleIcon(name: currentIndex == 1 ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
         icon4.image = moduleIcon(name: currentIndex == 2 ? "mk_swift_bx_slotConfigSelectedIcon" : "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
     }
-    
+
     private func updateNoteMsg() {
         guard let dataModel = dataModel else { return }
-        
+
         switch dataModel.viewType {
         case .deviceMoves:
             updateDeviceMovesNote()
@@ -296,10 +277,10 @@ public class MKSwiftBXTriggerTapView: UIView {
         default:
             updateMultiTapNote()
         }
-        
+
         setNeedsLayout()
     }
-    
+
     private func updateDeviceMovesNote() {
         switch currentIndex {
         case 0:
@@ -312,7 +293,7 @@ public class MKSwiftBXTriggerTapView: UIView {
             break
         }
     }
-    
+
     private func updateAmbientLightNote() {
         switch currentIndex {
         case 0:
@@ -325,7 +306,7 @@ public class MKSwiftBXTriggerTapView: UIView {
             break
         }
     }
-    
+
     private func updateSingleTapNote() {
         switch currentIndex {
         case 0:
@@ -338,7 +319,7 @@ public class MKSwiftBXTriggerTapView: UIView {
             break
         }
     }
-    
+
     private func updateTamperDetectNote() {
         switch currentIndex {
         case 0:
@@ -351,10 +332,10 @@ public class MKSwiftBXTriggerTapView: UIView {
             break
         }
     }
-    
+
     private func updateMultiTapNote() {
         let typeString = dataModel?.viewType == .triple ? "three times" : "twice"
-        
+
         switch currentIndex {
         case 0:
             noteMsgLabel.text = "*The Beacon will start and keep advertising after press the button \(typeString)."
@@ -366,17 +347,17 @@ public class MKSwiftBXTriggerTapView: UIView {
             break
         }
     }
-    
+
     private func updateContent() {
         guard let dataModel = dataModel else { return }
-        
+
         currentIndex = dataModel.index
         startField.text = dataModel.startValue
         stopField.text = dataModel.stopValue
-        
+
         updateSelectedIcon()
         updateNoteMsg()
-        
+
         switch dataModel.viewType {
         case .deviceMoves:
             msgLabel2.text = "Start advertising after device keep static for"
@@ -388,63 +369,63 @@ public class MKSwiftBXTriggerTapView: UIView {
             msgLabel2.text = "Start advertising for"
             msgLabel4.text = "Stop advertising for"
         }
-        
+
         setNeedsLayout()
     }
-    
+
     // MARK: - UI Components
-    
+
     private lazy var icon1: UIImageView = {
         let view = UIImageView()
         view.image = moduleIcon(name: "mk_swift_bx_slotConfigSelectedIcon", in: .module)
         return view
     }()
-    
+
     private lazy var icon2: UIImageView = {
         let view = UIImageView()
         view.image = moduleIcon(name: "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
         return view
     }()
-    
+
     private lazy var icon4: UIImageView = {
         let view = UIImageView()
         view.image = moduleIcon(name: "mk_swift_bx_slotConfigUnselectedIcon", in: .module)
         return view
     }()
-    
+
     private lazy var msgLabel1: UILabel = {
         let label = createMessageLabel()
         label.text = "Start and keep advertising"
         label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(msgLabel1Pressed)))
         return label
     }()
-    
+
     private lazy var msgLabel2: UILabel = {
         let label = createMessageLabel()
         label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(msgLabel2Pressed)))
         return label
     }()
-    
+
     private lazy var msgLabel4: UILabel = {
         let label = createMessageLabel()
         label.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(msgLabel4Pressed)))
         return label
     }()
-    
+
     private lazy var unitLabel1: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.attributedText = attributedUnitText()
         return label
     }()
-    
+
     private lazy var unitLabel2: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
         label.attributedText = attributedUnitText()
         return label
     }()
-    
+
     private lazy var startField: MKSwiftTextField = {
         let field = MKSwiftTextField(textFieldType: .realNumberOnly)
         field.textChangedBlock = { [weak self] text in
@@ -456,20 +437,19 @@ public class MKSwiftBXTriggerTapView: UIView {
         field.borderStyle = .none
         field.text = "30"
         field.maxLength = 5
-        
-        
+
         let lineView = UIView()
         lineView.backgroundColor = MKColor.line
         field.addSubview(lineView)
-        field.snp.remakeConstraints { make in
+        lineView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
             make.height.equalTo(1.0)
         }
-        
+
         return field
     }()
-    
-    private lazy var stopField: UITextField = {
+
+    private lazy var stopField: MKSwiftTextField = {
         let field = MKSwiftTextField(textFieldType: .realNumberOnly)
         field.textChangedBlock = { [weak self] text in
             self?.stopTextFieldValueChanged(text: text)
@@ -480,19 +460,18 @@ public class MKSwiftBXTriggerTapView: UIView {
         field.borderStyle = .none
         field.text = "30"
         field.maxLength = 5
-        
-        
+
         let lineView = UIView()
         lineView.backgroundColor = MKColor.line
         field.addSubview(lineView)
-        field.snp.remakeConstraints { make in
+        lineView.snp.makeConstraints { make in
             make.left.right.bottom.equalToSuperview()
             make.height.equalTo(1.0)
         }
-        
+
         return field
     }()
-    
+
     private lazy var noteMsgLabel: UILabel = {
         let label = UILabel()
         label.textColor = MKColor.rgb(229, 173, 140)
